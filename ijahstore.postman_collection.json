@@ -1,0 +1,142 @@
+{
+	"info": {
+		"_postman_id": "30c31a5f-a2cd-4ae1-bad2-aedac164dec2",
+		"name": "ijahstore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"SKU\":\"SSI-D00791077-MM-BWH\",\n\t\"ItemName\":\"Zalekia Plain Casual Blouse (M,Broken White)\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Purchase Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"product\":\n\t{\n\t\"SKU\":\"SSI-D00791077-MM-BWH\"\n\t},\n\t\"price\":27000,\n\t\"receiptNumber\":\"20180102-69541\",\n\t\"orderedQty\": 35\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/pos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"pos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Item Receipt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"PurchaseOrder\": {\n\t\t\"ReceiptNumber\": \"20180102-69541\"\n\t},\n\t\"ReceivedQty\": 25\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/pos/receipts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"pos",
+						"receipts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Sales Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"OrderID\":\"1234568\",\n\t\"Items\": [\n\t\t{\n\t\t\t\"Product\" : {\n\t\t\t\t\"SKU\":\"SSI-D00791015-LL-BWH\"\n\t\t\t},\n\t\t\t\"Qty\" : 5,\n\t\t\t\"Price\": 30000\n\t\t},\n\t\t{\n\t\t\t\"Product\" : {\n\t\t\t\t\"SKU\":\"SSI-D00791077-MM-BWH\"\n\t\t\t},\n\t\t\t\"Qty\" : 6,\n\t\t\t\"Price\": 40000\n\t\t}\n\t]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/sos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"sos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Valuation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8000/valuation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"valuation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Sales",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8000/sales",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"sales"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
