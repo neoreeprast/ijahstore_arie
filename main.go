@@ -66,7 +66,7 @@ func main() {
 	r.HandleFunc("/pos/receipts", ReceiveProduct).Methods("POST")
 	r.HandleFunc("/sos", CreateSO).Methods("POST")
 	r.HandleFunc("/valuation", ViewValuationReport).Methods("GET")
-	r.HandleFunc("/sales", ViewValuationReport).Methods("GET")
+	r.HandleFunc("/sales", ViewSalesReport).Methods("GET")
 	defer db.Close()
 	log.Fatal(http.ListenAndServe(":8000", r))
 }
